@@ -1,0 +1,39 @@
+function validateForm() {
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  if (!name || !email || !message) {
+    alert("Please fill in all fields.");
+    return false;
+  }
+
+  alert("Message sent!");
+  return true;
+}
+document.getElementById("modeToggle").addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+});
+
+const images = ["image1.jpg", "image2.jpg", "image3.jpg"];
+let current = 0;
+
+function showImage(index) {
+  const img = document.getElementById("slider-image");
+  img.src = images[index];
+}
+
+function nextImage() {
+  current = (current + 1) % images.length;
+  showImage(current);
+}
+
+function prevImage() {
+  current = (current - 1 + images.length) % images.length;
+  showImage(current);
+}
+
+// Initialize
+document.addEventListener("DOMContentLoaded", () => {
+  showImage(current);
+});
